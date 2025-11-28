@@ -38,10 +38,22 @@ class SimpleWidgetContent : GlanceAppWidget() {
                 modifier = GlanceModifier.padding(12.dp)
             )
 
-            Row(horizontalAlignment = Alignment.CenterHorizontally) {
+            Row(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                modifier = GlanceModifier.padding(vertical = 8.dp)
+            ) {
+                // Botón 1 → abre MainActivity
                 Button(
                     text = "Página Principal",
                     onClick = actionStartActivity<MainActivity>()
+                )
+
+                Spacer(modifier = GlanceModifier.width(8.dp))
+
+                // Botón 2 → abre SecondActivity (PASO 8)
+                Button(
+                    text = "Otra Vista",
+                    onClick = actionStartActivity<SecondActivity>()
                 )
             }
         }
