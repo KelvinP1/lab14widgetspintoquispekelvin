@@ -24,12 +24,12 @@
             </intent-filter>
         </activity>
 
-        <!-- NUEVA ACTIVITY (PARA PASO 8) -->
+        <!-- NUEVA ACTIVITY (PASO 8) -->
         <activity
             android:name=".SecondActivity"
             android:exported="true" />
 
-        <!-- REGISTRO DEL WIDGET -->
+        <!-- WIDGET DEL LABORATORIO -->
         <receiver
             android:name=".SimpleWidget"
             android:exported="true">
@@ -41,6 +41,20 @@
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/simple_widget_info" />
+        </receiver>
+
+        <!-- WIDGET DEL PROYECTO FINAL -->
+        <receiver
+            android:name=".ProjectWidget"
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/project_widget_info" />
         </receiver>
 
     </application>
