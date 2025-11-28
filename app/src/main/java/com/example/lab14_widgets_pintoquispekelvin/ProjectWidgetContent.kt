@@ -2,8 +2,11 @@ package com.example.lab14_widgets_pintoquispekelvin
 
 import android.content.Context
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.unit.dp
-import androidx.glance.*
+import androidx.compose.ui.unit.dp 
+import androidx.glance.Button
+import androidx.glance.GlanceId
+import androidx.glance.GlanceModifier
+import androidx.glance.GlanceTheme
 import androidx.glance.action.actionStartActivity
 import androidx.glance.appwidget.GlanceAppWidget
 import androidx.glance.appwidget.provideContent
@@ -27,37 +30,32 @@ class ProjectWidgetContent : GlanceAppWidget() {
         // Datos simulados
         val gasValue = 7.4
         val status = if (gasValue < 10) "SEGURO" else "ALERTA"
-        val statusColor = if (gasValue < 10) "#00FF88" else "#FF4D4D"
 
         Column(
             modifier = GlanceModifier
                 .fillMaxSize()
                 .background(GlanceTheme.colors.background)
-                .padding(12.dp),
+                .padding(12.dp),   // ✔ dp ya funciona
             verticalAlignment = Alignment.Top,
             horizontalAlignment = Alignment.Start
         ) {
 
-            Text("SafeMine IoT", style = TextStyle(fontSize = 18.sp))
+            Text(text = "SafeMine IoT")
+
             Spacer(GlanceModifier.height(6.dp))
 
-            Text(
-                text = "H₂S: $gasValue ppm",
-                style = TextStyle(fontSize = 16.sp)
-            )
-
-            Text(
-                text = "Estado: $status",
-                style = TextStyle(color = ColorProvider(statusColor), fontSize = 16.sp)
-            )
+            Text(text = "H₂S: $gasValue ppm")
+            Text(text = "Estado: $status")
 
             Spacer(GlanceModifier.height(8.dp))
-            Text("Última actualización: Hace 2 min", style = TextStyle(fontSize = 12.sp))
+
+            Text(text = "Última actualización: Hace 2 min")
 
             Spacer(GlanceModifier.height(10.dp))
 
-            Row(horizontalAlignment = Alignment.CenterHorizontally) {
-
+            Row(
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
                 Button(
                     text = "Alertas",
                     onClick = actionStartActivity<SecondActivity>()
