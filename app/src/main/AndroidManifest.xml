@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Lab14widgetspintoquispekelvin">
 
+        <!-- MAIN -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -22,6 +23,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- NUEVA ACTIVITY (PARA PASO 8) -->
+        <activity
+            android:name=".SecondActivity"
+            android:exported="true" />
 
         <!-- REGISTRO DEL WIDGET -->
         <receiver
